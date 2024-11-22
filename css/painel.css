@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: 110px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header p {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+}
+
+header img {
+    width: 60px;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#lateral {
+    background-color: #fff;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+#lateral .selecao {
+    width: 100%;
+    margin-left: 60px;
+}
+
+.parte {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.parte img {
+    width: 40px;
+    margin-right: 30px;
+}
+
+.parte p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+#painel {
+    background-color: #F6F5FA;
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.titulo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+}
+
+.adicionar {
+    display: flex;
+    align-items: center;
+}
+
+.adicionar button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-right: 10px;
+}
+
+.adicionar button:hover {
+    background-color: #45a049;
+}
+
+.adicionar input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.adicionar input:focus {
+    border-color: #4CAF50;
+}
+
+.linha {
+    height: 2px;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+

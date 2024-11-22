@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert('Login ou senha incorretos!');
             } else {
                 alert('Login realizado com sucesso!');
-                window.location.href = '../html/adm.html';
+                window.location.href = '../html/painel.html';
             }
         } catch (err) {
             console.error('Erro ao tentar logar:', err.message);
