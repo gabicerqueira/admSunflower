@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: 0;
+}
+
+@font-face {
+    font-family: 'Belleza';
+    src: url(../fonts/Belleza-Regular.ttf);
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 60px;
+    margin-right: 15px;
+}
+
+.logo p{
+    font: 400 22px 'Belleza', sans-serif;
+}
+
+#esquerda{
+    display: flex;
+    flex-direction: column;
+}
