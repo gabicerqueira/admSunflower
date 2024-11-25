@@ -14,10 +14,31 @@ a{
     src: url(../fonts/Belleza-Regular.ttf);
 }
 
+@font-face {
+    font-family: 'PoppinsSemiBold';
+    src: url(../fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'PoppinsBold';
+    src: url(../fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'PoppinsMedium';
+    src: url(../fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'PoppinsRegular';
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 60px 90px;
 }
 
 .logo{
@@ -37,4 +58,88 @@ a{
 #esquerda{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.mulher img{
+    width: 100%;
+}
+
+.mulher{
+    width: 80%;
+}
+
+#direita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.retangulo{
+    background-color: #FFE3AE;
+    border-radius: 25px;
+    padding: 70px 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto{
+    text-align: center;
+}
+
+.bem-vindo{
+    font: 800 31px 'PoppinsSemiBold', sans-serif;
+}
+
+.informacao{
+    font: 400 17px 'PoppinsMedium', sans-serif;
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 55px;
+}
+
+#loginForm input{
+    padding: 10px;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    border: solid 2px #9A9A9A;
+    font: 500 16px 'PoppinsRegular', sans-serif;
+    margin: 8px 0;
+    outline: none;
+}
+
+#loginForm p{
+    font: 500 16px 'PoppinsRegular', sans-serif;
+}
+
+.esqueceu{
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    width: 100%;
+}
+
+#loginForm button{
+    width: 100%;
+    padding: 10px 0px;
+    font: 800 18px 'PoppinsBold', sans-serif;
+    background-color: #7F4D2A;
+    border-radius: 25px;
+    color: white;
+    box-shadow: 0px 3px 5px #00000067;
+    border: none;
+    cursor: pointer;
+    margin-top: 55px;
 }
