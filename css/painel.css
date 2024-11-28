@@ -4,6 +4,21 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'MontserratRegular';
+    src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'PoppinsRegular';
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'PoppinsSemiBold';
+    src: url(../fonts/Poppins-SemiBold.ttf);
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -25,8 +40,7 @@ html, body {
 }
 
 #header p {
-    font-size: 22px;
-    font-weight: 700;
+    font: 500 20px 'MontserratRegular', sans-serif;
     color: #333;
 }
 
@@ -78,8 +92,7 @@ main {
 }
 
 .parte p {
-    font-size: 18px;
-    font-weight: 600;
+    font: 500 18px 'PoppinsRegular', sans-serif;
     color: #333;
 }
 
@@ -89,6 +102,7 @@ main {
     padding: 20px;
     overflow-y: auto;
     border-start-start-radius: 20px;
+    padding: 80px;
 }
 
 .inicio {
@@ -99,8 +113,7 @@ main {
 }
 
 .titulo {
-    font-size: 26px;
-    font-weight: 700;
+    font: 700 30px 'PoppinsSemiBold', sans-serif;
     color: #333;
 }
 
