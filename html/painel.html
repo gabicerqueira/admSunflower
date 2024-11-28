@@ -18,42 +18,102 @@
         <img src="../img/logo.png" alt="Girassol">
       </div>
       <div class="selecao">
-        <div class="parte">
+        <div class="parte" data-target="alunos">
           <img src="../img/chapeu.png" alt="Chapéu de formatura">
           <p>Alunos</p>
         </div>
-        <div class="parte">
+        <div class="parte" data-target="professores">
           <img src="../img/professores.png" alt="Professor">
           <p>Professores</p>
         </div>
-        <div class="parte">
+        <div class="parte" data-target="responsaveis">
           <img src="../img/responsaveis.png" alt="Casa com um coração">
           <p>Responsáveis</p>
         </div>
       </div>
     </nav>
-  
+
     <main>
       <section id="header">
-        <p>SESI 240</p>
+        <p>Carregando...</p>
       </section>
-  
+
       <section id="painel">
-        <div class="inicio">
+        <div id="alunos" class="conteudo">
           <p class="titulo">Alunos</p>
           <div class="adicionar">
-            <button>Adicionar aluno</button>
-            <input type="text">
+            <button id="btn-adicionar-aluno">Adicionar aluno</button>
+            <input type="text" placeholder="Pesquisar pelo nome">
           </div>
         </div>
-  
+
+        <div id="modal-adicionar-aluno" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar Aluno</h2>
+            <form id="form-aluno">
+              <div>
+                <label for="nome-aluno">Nome:</label>
+                <input type="text" id="nome-aluno" placeholder="Digite o nome do aluno" required />
+              </div>
+
+              <div>
+                <label for="tipo-ensino-aluno">Tipo de Ensino:</label>
+                <select id="tipo-ensino-aluno" required>
+                  <option value="">Selecione o tipo de ensino</option>
+                  <option value="EFI">Ensino Fundamental I</option>
+                  <option value="EFII">Ensino Fundamental II</option>
+                  <option value="NEM">Ensino Médio</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="turma-aluno">Turma:</label>
+                <select id="turma-aluno" required>
+                  <option value="">Selecione uma turma</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="genero-aluno">Gênero:</label>
+                <select id="genero-aluno" required>
+                  <option value="">Selecione o gênero</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+
+
+              <button type="submit">Adicionar</button>
+            </form>
+          </div>
+        </div>
+
         <div class="linha"></div>
-  
+
         <div id="lista-alunos"></div>
+
+        <div id="modal-relacao" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar Relação</h2>
+            <form id="form-professor-aluno">
+              <div>
+                <label for="professor-nome">Professor:</label>
+                <select id="professor-nome">
+                  <option value="">Selecione um professor</option>
+                </select>
+              </div>
+              <button type="submit">Adicionar Relacionamento</button>
+            </form>
+          </div>
+        </div>
+
       </section>
     </main>
   </div>
-  
+
 
 </body>
 

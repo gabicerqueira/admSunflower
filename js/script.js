@@ -12,14 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const { data, error } = await supabaseClient
                 .from('adm')
-                .select('*')
+                .select('empresa, email, senha') // Inclua 'empresa' aqui
                 .eq('email', email)
                 .eq('senha', senha)
                 .single();
-
+    
             if (error || !data) {
                 alert('Login ou senha incorretos!');
             } else {
+                // Salvar o nome da empresa no localStorage
+                localStorage.setItem('empresa', data.empresa);
+                
                 alert('Login realizado com sucesso!');
                 window.location.href = '../html/painel.html';
             }

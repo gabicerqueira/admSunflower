@@ -10,6 +10,16 @@
 }
 
 @font-face {
+    font-family: 'MontserratLight';
+    src: url(../fonts/Montserrat-Light.ttf);
+}
+
+@font-face {
+    font-family: 'MontserratSemiBold';
+    src: url(../fonts/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
     font-family: 'PoppinsRegular';
     src: url(../fonts/Poppins-Regular.ttf);
 }
@@ -19,7 +29,13 @@
     src: url(../fonts/Poppins-SemiBold.ttf);
 }
 
-html, body {
+@font-face {
+    font-family: 'PoppinsMedium';
+    src: url(../fonts/Poppins-Medium.ttf);
+}
+
+html,
+body {
     height: 100%;
     margin: 0;
 }
@@ -47,7 +63,7 @@ html, body {
 main {
     display: flex;
     flex-direction: column;
-    flex: 1; 
+    flex: 1;
     overflow: hidden;
 }
 
@@ -74,7 +90,7 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     width: 100%;
     padding-left: 60px;
 }
@@ -105,7 +121,7 @@ main {
     padding: 80px;
 }
 
-.inicio {
+.conteudo {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -123,70 +139,310 @@ main {
 }
 
 .adicionar button {
-    background-color: #4CAF50;
+    background-color: #FFBE40;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 15px;
+    padding: 8px 25px;
+    font: 700 15px 'PoppinsSemiBold', sans-serif;
     cursor: pointer;
     transition: background 0.3s ease;
+    transition: transform 0.3s ease-out;
     margin-right: 10px;
+    box-shadow: 0px 2px 5px #0000004d;
 }
 
 .adicionar button:hover {
-    background-color: #45a049;
+    background-color: #f0ac22;
+    transform: scale(0.9);
 }
 
 .adicionar input {
     padding: 8px 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 10px;
     outline: none;
+    font: 500 14px 'PoppinsRegular', sans-serif;
 }
 
 .adicionar input:focus {
-    border-color: #4CAF50;
+    border-color: #f0ac22;
 }
 
 .linha {
-    height: 2px;
-    background-color: #ccc;
+    height: 3px;
+    background-color: #ffffff;
     margin: 10px 0;
 }
 
 #lista-alunos {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 80px;
+    margin-top: 30px;
 }
 
 .aluno-card {
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #A9A9A9;
     border-radius: 8px;
-    padding: 15px;
-    width: 200px;
+    padding: 25px;
+    width: 250px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .aluno-card img {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
 }
 
 .aluno-card h3 {
-    font-size: 18px;
-    font-weight: bold;
+    font: 700 18px 'PoppinsSemiBold', sans-serif;
     margin-bottom: 5px;
 }
 
 .aluno-card p {
-    font-size: 14px;
-    color: #666;
+    font: 400 14px 'MontserratLight', sans-serif;
+    color: #000000;
 }
+
+.aluno-card span {
+    font: 700 14px 'MontserratSemiBold', sans-serif;
+    color: #000000;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+    display: none; /* Modal oculto inicialmente */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal h2{
+    font: 700 25px 'PoppinsSemiBold', sans-serif;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px; 
+    border-radius: 10px;
+    width: 90%;
+    max-width: 550px;
+    position: relative;
+    box-sizing: border-box; 
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font: 500 25px 'PoppinsRegular', sans-serif;
+    padding: 15px;
+    transition: 0.3s ease-out;
+}
+
+.close:hover{
+    transform: scale(1.2);    
+}
+
+#form-aluno{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#form-aluno label{
+    font: 500 16px 'PoppinsMedium', sans-serif;
+}
+
+#form-aluno div{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+#form-aluno input{
+    padding: 5px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font: 500 14px 'PoppinsRegular', sans-serif;
+    transition: all 0.3s ease;
+}
+
+#form-aluno input:hover{
+    border-color: #f0ac22;
+}
+
+#form-aluno select {
+    width: 100%;
+    padding: 8px 12px;
+    font: 500 14px 'PoppinsRegular', sans-serif;
+    color: #333;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#form-aluno select:hover {
+    border-color: #f0ac22;
+    background-color: #f5f1e7;
+}
+
+#form-aluno select:focus {
+    border-color: #f0ac22;
+    box-shadow: 0 0 5px #f5f1e7; /* Efeito de foco com sombra */
+}
+
+#form-aluno select option {
+    padding: 8px;
+    font: 500 14px 'PoppinsRegular', sans-serif;
+}
+
+#form-aluno button{
+    background-color: #FFBE40;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 0;
+    font: 700 15px 'PoppinsSemiBold', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    transition: transform 0.3s ease-out;
+    box-shadow: 0px 2px 5px #0000004d;
+    margin-top: 20px;
+}
+
+#form-aluno button:hover {
+    background-color: #f0ac22;
+    transform: scale(0.95);
+}
+
+.menu-aluno {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    font-family: 'PoppinsRegular', sans-serif;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu-button:hover {
+    transform: scale(1.2);
+    color: #FFBE40;
+}
+
+.menu-options {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    z-index: 10;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.menu-options button {
+    background: none;
+    border: none;
+    padding: 8px 10px;
+    text-align: left;
+    width: 100%;
+    font: 500 14px 'PoppinsRegular', sans-serif;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-options button:hover {
+    background-color: #FFBE40;
+    color: white;
+}
+
+.menu-button:hover + .menu-options,
+.menu-options:hover {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#form-professor-aluno label{
+    font: 500 18px 'PoppinsMedium', sans-serif;
+}
+
+#form-professor-aluno div{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#form-professor-aluno select {
+    width: 100%;
+    padding: 8px 12px;
+    font: 500 14px 'PoppinsRegular', sans-serif;
+    color: #333;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#form-professor-aluno select:hover {
+    border-color: #f0ac22;
+    background-color: #f5f1e7;
+}
+
+#form-professor-aluno button{
+    background-color: #f0ac22;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 0;
+    font: 700 15px 'PoppinsSemiBold', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    transition: transform 0.3s ease-out;
+    box-shadow: 0px 2px 5px #0000004d;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#form-professor-aluno button:hover {
+    background-color: #cd911a;
+    transform: scale(0.95);
+}
+
+  
