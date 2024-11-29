@@ -92,14 +92,17 @@ main {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    padding-left: 60px;
+
 }
 
 .parte {
     display: flex;
     align-items: center;
-    margin: 20px 0;
     cursor: pointer;
+    width: 100%;
+    height: 10vh;
+    padding-left: 60px;
+    transition: all 0.3s ease-out;
 }
 
 .parte img {
@@ -175,14 +178,21 @@ main {
     margin: 10px 0;
 }
 
-#lista-alunos {
+#lista-alunos, #lista-professores{
     display: flex;
     flex-wrap: wrap;
     gap: 80px;
     margin-top: 30px;
 }
 
-.aluno-card {
+#lista-responsaveis{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.aluno-card, .professor-card{
     background-color: #fff;
     border: 1px solid #A9A9A9;
     border-radius: 8px;
@@ -193,7 +203,26 @@ main {
     position: relative;
 }
 
-.aluno-card img {
+.responsavel-card {
+    background-color: #fff;
+    border: 1px solid #A9A9A9;
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.responsavel-card div{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.aluno-card img, .professor-card img {
     width: 140px;
     height: 140px;
     border-radius: 50%;
@@ -201,17 +230,17 @@ main {
     margin-bottom: 10px;
 }
 
-.aluno-card h3 {
+.aluno-card h3, .professor-card h3, .responsavel-card h3 {
     font: 700 18px 'PoppinsSemiBold', sans-serif;
     margin-bottom: 5px;
 }
 
-.aluno-card p {
+.aluno-card p, .professor-card p, .responsavel-card p {
     font: 400 14px 'MontserratLight', sans-serif;
     color: #000000;
 }
 
-.aluno-card span {
+.aluno-card span, .responsavel-card span {
     font: 700 14px 'MontserratSemiBold', sans-serif;
     color: #000000;
 }
@@ -257,23 +286,23 @@ main {
     transform: scale(1.2);    
 }
 
-#form-aluno{
+#form-aluno, #form-professor, #form-responsavel{
     margin-top: 30px;
     display: flex;
     flex-direction: column;
 }
 
-#form-aluno label{
+#form-aluno label, #form-professor label, #form-responsavel label{
     font: 500 16px 'PoppinsMedium', sans-serif;
 }
 
-#form-aluno div{
+#form-aluno div, #form-professor div, #form-responsavel div{
     display: flex;
     flex-direction: column;
     margin: 10px 0;
 }
 
-#form-aluno input{
+#form-aluno input, #form-professor input, #form-responsavel input{
     padding: 5px 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -282,11 +311,11 @@ main {
     transition: all 0.3s ease;
 }
 
-#form-aluno input:hover{
+#form-aluno input:hover, #form-professor input:hover, #form-responsavel input:hover{
     border-color: #f0ac22;
 }
 
-#form-aluno select {
+#form-aluno select , #form-responsavel select{
     width: 100%;
     padding: 8px 12px;
     font: 500 14px 'PoppinsRegular', sans-serif;
@@ -299,22 +328,22 @@ main {
     transition: all 0.3s ease;
 }
 
-#form-aluno select:hover {
+#form-aluno select:hover, #form-responsavel select:hover{
     border-color: #f0ac22;
     background-color: #f5f1e7;
 }
 
-#form-aluno select:focus {
+#form-aluno select:focus, #form-responsavel select:focus{
     border-color: #f0ac22;
     box-shadow: 0 0 5px #f5f1e7; /* Efeito de foco com sombra */
 }
 
-#form-aluno select option {
+#form-aluno select option, #form-responsavel select option {
     padding: 8px;
     font: 500 14px 'PoppinsRegular', sans-serif;
 }
 
-#form-aluno button{
+#form-aluno button, #form-professor button, #form-responsavel button{
     background-color: #FFBE40;
     color: white;
     border: none;
@@ -328,7 +357,7 @@ main {
     margin-top: 20px;
 }
 
-#form-aluno button:hover {
+#form-aluno button:hover, #form-professor button:hover, #form-responsavel button:hover {
     background-color: #f0ac22;
     transform: scale(0.95);
 }
@@ -336,6 +365,14 @@ main {
 .menu-aluno {
     position: absolute;
     top: 10px;
+    right: 10px;
+    display: inline-block;
+    font-family: 'PoppinsRegular', sans-serif;
+}
+
+.menu-responsavel {
+    position: absolute;
+    top: 6px;
     right: 10px;
     display: inline-block;
     font-family: 'PoppinsRegular', sans-serif;
@@ -445,4 +482,23 @@ main {
     transform: scale(0.95);
 }
 
-  
+.painel-professores, .painel-responsaveis {
+    display: none;
+}
+
+.selecao .parte.ativo p {
+    color: #f0ac22;
+}
+
+.selecao .parte.ativo{
+    background-color: #FFF9EE;
+}
+
+.selecao .parte:hover{
+    background-color: rgb(252, 233, 197);
+}
+
+.selecao .parte.ativo img {
+    filter: brightness(0) saturate(100%) invert(65%) sepia(10%) saturate(7500%) hue-rotate(10deg) brightness(110%) contrast(105%);
+}
+

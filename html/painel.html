@@ -38,12 +38,12 @@
         <p>Carregando...</p>
       </section>
 
-      <section id="painel">
+      <section id="painel" class="painel-alunos">
         <div id="alunos" class="conteudo">
           <p class="titulo">Alunos</p>
           <div class="adicionar">
             <button id="btn-adicionar-aluno">Adicionar aluno</button>
-            <input type="text" placeholder="Pesquisar pelo nome">
+            <input type="text" id="pesquisa-aluno" placeholder="Pesquisar pelo nome">
           </div>
         </div>
 
@@ -111,6 +111,92 @@
         </div>
 
       </section>
+
+      <section id="painel" class="painel-professores">
+        <div id="professores" class="conteudo">
+          <p class="titulo">Professores</p>
+          <div class="adicionar">
+            <button id="btn-adicionar-professor">Adicionar professor</button>
+            <input type="text" id="pesquisa-professor" placeholder="Pesquisar pelo nome">
+          </div>
+        </div>
+
+        <div id="modal-adicionar-professor" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar Professor</h2>
+            <form id="form-professor">
+              <div>
+                <label for="nome-professor">Nome:</label>
+                <input type="text" id="nome-professor" placeholder="Digite o nome do professor" required />
+              </div>
+
+              <div>
+                <label for="email-professor">Email:</label>
+                <input type="email" id="email-professor" name="email" placeholder="Digite o email do professor" required>
+              </div>
+
+              <div>
+                <label for="senha-professor">Senha:</label>
+                <input type="password" id="senha-professor" name="senha" placeholder="Digite a senha do professor" required>
+              </div>
+
+              <button type="submit">Adicionar</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="linha"></div>
+
+        <div id="lista-professores"></div>
+      </section>
+
+      <section id="painel" class="painel-responsaveis">
+        <div id="responsaveis" class="conteudo">
+          <p class="titulo">Responsáveis</p>
+          <div class="adicionar">
+            <button id="btn-adicionar-responsavel">Adicionar responsável</button>
+            <input type="text" id="pesquisa-responsavel" placeholder="Pesquisar pelo nome">
+          </div>
+        </div>
+
+        <div id="modal-adicionar-responsavel" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar Responsável</h2>
+            <form id="form-responsavel">
+              <div>
+                <label for="nome-responsavel">Nome:</label>
+                <input type="text" id="nome-responsavel" placeholder="Digite o nome do responsável" required />
+              </div>
+
+              <div>
+                <label for="email-responsavel">Email:</label>
+                <input type="email" id="email-responsavel" name="email" placeholder="Digite o email do responsável" required>
+              </div>
+
+              <div>
+                <label for="senha-responsavel">Senha:</label>
+                <input type="password" id="senha-responsavel" name="senha" placeholder="Digite a senha do responsável" required>
+              </div>
+
+              <div>
+                <label for="aluno-responsavel">Aluno:</label>
+                <select id="aluno-responsavel" required>
+                  <option value="" disabled selected>Selecione um aluno</option>
+                </select>
+              </div>              
+
+              <button type="submit">Adicionar</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="linha"></div>
+
+        <div id="lista-responsaveis"></div>
+      </section>
+
     </main>
   </div>
 
