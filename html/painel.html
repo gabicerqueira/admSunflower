@@ -110,6 +110,35 @@
           </div>
         </div>
 
+        <div id="modal-editar-aluno" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Aluno</h2>
+            <form id="form-editar-aluno">
+              <div>
+                <label for="editar-nome-aluno">Nome:</label>
+                <input type="text" id="editar-nome-aluno" required />
+              </div>
+              <div>
+                <label for="editar-turma-aluno">Turma:</label>
+                <select id="editar-turma-aluno" required>
+                  <option value="">Selecione uma turma</option>
+                </select>
+              </div>
+              <div>
+                <label for="editar-genero-aluno">Gênero:</label>
+                <select id="editar-genero-aluno" required>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+              <button type="submit">Salvar Alterações</button>
+            </form>
+          </div>
+        </div>
+        
+
       </section>
 
       <section id="painel" class="painel-professores">

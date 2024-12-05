@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="menu-aluno">
                         <button class="menu-button">...</button>
                         <div class="menu-options">
+                        <button class="editar-aluno">Editar</button>
                             <button class="excluir-aluno">Excluir</button>
                             <button class="adicionar-relacao">Adicionar Relação</button>
                         </div>
@@ -227,15 +228,101 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3>${aluno.nome}</h3>
             <p>${aluno.email}</p>
             <div class="menu-aluno">
-                    <button class="menu-button">...</button>
-                    <div class="menu-options">
-                        <button class="excluir-aluno">Excluir</button>
+                        <button class="menu-button">...</button>
+                        <div class="menu-options">
+                        <button class="editar-aluno">Editar</button>
+                            <button class="excluir-aluno">Excluir</button>
+                            <button class="adicionar-relacao">Adicionar Relação</button>
+                        </div>
                     </div>
-                </div>
       `;
             listaAlunos.appendChild(alunoCard);
         });
     });
+
+    const modalEditarAluno = document.getElementById('modal-editar-aluno');
+    const closeEditarModal = modalEditarAluno.querySelector('.close');
+
+    // Abre o modal de edição ao clicar no botão "Editar"
+    document.addEventListener('click', async (event) => {
+        if (event.target.classList.contains('editar-aluno')) {
+            const alunoCard = event.target.closest('.aluno-card');
+            const alunoId = alunoCard.dataset.alunoId;
+
+            if (!alunoId) {
+                console.error('Aluno ID não encontrado');
+                return;
+            }
+
+            try {
+                const { data, error } = await supabaseClient
+                    .from('alunos')
+                    .select('*')
+                    .eq('id', alunoId)
+                    .single();
+
+                if (error || !data) {
+                    console.error('Erro ao carregar aluno:', error);
+                    return;
+                }
+
+                // Preenche os campos do modal com os valores atuais do aluno
+                document.getElementById('editar-nome-aluno').value = data.nome;
+                document.getElementById('editar-turma-aluno').value = data.turma;
+                document.getElementById('editar-genero-aluno').value = data.genero;
+
+                modalEditarAluno.style.display = 'flex';
+                modalEditarAluno.dataset.alunoId = alunoId; // Armazena o ID do aluno no modal
+            } catch (erro) {
+                console.error('Erro inesperado:', erro);
+            }
+        }
+    });
+
+    // Fecha o modal de edição
+    closeEditarModal.addEventListener('click', () => {
+        modalEditarAluno.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modalEditarAluno) {
+            modalEditarAluno.style.display = 'none';
+        }
+    });
+
+    document.getElementById('form-editar-aluno').addEventListener('submit', async (event) => {
+        event.preventDefault();
+    
+        const alunoId = modalEditarAluno.dataset.alunoId;
+        const nome = document.getElementById('editar-nome-aluno').value.trim();
+        const turma = document.getElementById('editar-turma-aluno').value.trim();
+        const genero = document.getElementById('editar-genero-aluno').value;
+    
+        if (!nome || !turma || !genero) {
+            alert('Todos os campos são obrigatórios.');
+            return;
+        }
+    
+        try {
+            const { error } = await supabaseClient
+                .from('alunos')
+                .update({ nome, turma, genero })
+                .eq('id', alunoId);
+    
+            if (error) {
+                alert(`Erro ao editar aluno: ${error.message}`);
+            } else {
+                alert('Aluno editado com sucesso!');
+                modalEditarAluno.style.display = 'none';
+                carregarAlunos(); // Atualiza a lista de alunos
+            }
+        } catch (erro) {
+            console.error('Erro inesperado:', erro);
+        }
+    });
+    
+
+
 
     //MODAL RELAÇÃO
     async function mostrarModalAdicionarRelacao(target) {

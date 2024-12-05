@@ -143,3 +143,39 @@ a{
     cursor: pointer;
     margin-top: 55px;
 }
+
+@media screen and (max-width: 768px){
+    #esquerda .mulher{
+        display: none;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo{
+        margin-bottom: 25px;
+        justify-content: center;
+    }
+
+    .retangulo{
+        padding: 70px 60px;
+        width: 400px;
+    }
+
+    .bem-vindo{
+        font: 800 28px 'PoppinsSemiBold', sans-serif;
+    }
+    
+    .informacao{
+        font: 400 15px 'PoppinsMedium', sans-serif;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .retangulo{
+        padding: 70px 40px;
+        width: 300px;
+    }
+}
