@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem('empresa', data.empresa);
                 
                 alert('Login realizado com sucesso!');
-                window.location.href = '../html/painel.html';
+                window.location.href = './painel.html';
             }
         } catch (err) {
             console.error('Erro ao tentar logar:', err.message);
