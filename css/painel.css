@@ -103,6 +103,7 @@ main {
     height: 10vh;
     padding-left: 60px;
     transition: all 0.3s ease-out;
+    flex-wrap: wrap;
 }
 
 .parte img {
@@ -286,23 +287,23 @@ main {
     transform: scale(1.2);    
 }
 
-#form-aluno, #form-professor, #form-responsavel{
+#form-aluno, #form-professor, #form-responsavel, #form-editar-aluno{
     margin-top: 30px;
     display: flex;
     flex-direction: column;
 }
 
-#form-aluno label, #form-professor label, #form-responsavel label{
+#form-aluno label, #form-professor label, #form-responsavel label, #form-editar-aluno label{
     font: 500 16px 'PoppinsMedium', sans-serif;
 }
 
-#form-aluno div, #form-professor div, #form-responsavel div{
+#form-aluno div, #form-professor div, #form-responsavel div, #form-editar-aluno div{
     display: flex;
     flex-direction: column;
     margin: 10px 0;
 }
 
-#form-aluno input, #form-professor input, #form-responsavel input{
+#form-aluno input, #form-professor input, #form-responsavel input, #form-editar-aluno input{
     padding: 5px 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -311,11 +312,11 @@ main {
     transition: all 0.3s ease;
 }
 
-#form-aluno input:hover, #form-professor input:hover, #form-responsavel input:hover{
+#form-aluno input:hover, #form-professor input:hover, #form-responsavel input:hover, #form-editar-aluno input:hover{
     border-color: #f0ac22;
 }
 
-#form-aluno select , #form-responsavel select{
+#form-aluno select , #form-responsavel select, #form-editar-aluno select{
     width: 100%;
     padding: 8px 12px;
     font: 500 14px 'PoppinsRegular', sans-serif;
@@ -328,22 +329,22 @@ main {
     transition: all 0.3s ease;
 }
 
-#form-aluno select:hover, #form-responsavel select:hover{
+#form-aluno select:hover, #form-responsavel select:hover, #form-editar-aluno select:hover{
     border-color: #f0ac22;
     background-color: #f5f1e7;
 }
 
-#form-aluno select:focus, #form-responsavel select:focus{
+#form-aluno select:focus, #form-responsavel select:focus, #form-editar-aluno select:focus{
     border-color: #f0ac22;
     box-shadow: 0 0 5px #f5f1e7; /* Efeito de foco com sombra */
 }
 
-#form-aluno select option, #form-responsavel select option {
+#form-aluno select option, #form-responsavel select option, #form-editar-aluno select option {
     padding: 8px;
     font: 500 14px 'PoppinsRegular', sans-serif;
 }
 
-#form-aluno button, #form-professor button, #form-responsavel button{
+#form-aluno button, #form-professor button, #form-responsavel button, #form-editar-aluno button{
     background-color: #FFBE40;
     color: white;
     border: none;
@@ -357,7 +358,7 @@ main {
     margin-top: 20px;
 }
 
-#form-aluno button:hover, #form-professor button:hover, #form-responsavel button:hover {
+#form-aluno button:hover, #form-professor button:hover, #form-responsavel button:hover, #form-editar-aluno button:hover{
     background-color: #f0ac22;
     transform: scale(0.95);
 }
@@ -565,4 +566,48 @@ main {
     #lista-alunos, #lista-professores, #lista-responsaveis{
         justify-content: center;
     }
+
+    .responsavel-card {
+        width: 100%;
+        padding: 20px; 
+        text-align: left;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+}
+
+@media screen and (max-width: 1100px){
+    .parte{
+        padding-left: 0;
+        justify-content: center;
+    }
+
+    .parte p{
+        display: none;
+    }
+
+    .parte img{
+        margin: 0;
+        width: 35px;
+    }
+
+    .conteudo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .adicionar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .adicionar button {
+        margin: 10px 0;
+    }
+
 }

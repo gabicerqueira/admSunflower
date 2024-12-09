@@ -120,6 +120,14 @@
                 <input type="text" id="editar-nome-aluno" required />
               </div>
               <div>
+                <label for="editar-ensino-aluno">Ensino:</label>
+                <select id="editar-ensino-aluno" required>
+                  <option value="EFI">Ensino Fundamental I</option>
+                  <option value="EFII">Ensino Fundamental II</option>
+                  <option value="NEM">Ensino Médio</option>
+                </select>
+              </div>
+              <div>
                 <label for="editar-turma-aluno">Turma:</label>
                 <select id="editar-turma-aluno" required>
                   <option value="">Selecione uma turma</option>
@@ -137,7 +145,8 @@
             </form>
           </div>
         </div>
-        
+
+
 
       </section>
 
@@ -162,12 +171,14 @@
 
               <div>
                 <label for="email-professor">Email:</label>
-                <input type="email" id="email-professor" name="email" placeholder="Digite o email do professor" required>
+                <input type="email" id="email-professor" name="email" placeholder="Digite o email do professor"
+                  required>
               </div>
 
               <div>
                 <label for="senha-professor">Senha:</label>
-                <input type="password" id="senha-professor" name="senha" placeholder="Digite a senha do professor" required>
+                <input type="password" id="senha-professor" name="senha" placeholder="Digite a senha do professor"
+                  required>
               </div>
 
               <button type="submit">Adicionar</button>
@@ -201,12 +212,14 @@
 
               <div>
                 <label for="email-responsavel">Email:</label>
-                <input type="email" id="email-responsavel" name="email" placeholder="Digite o email do responsável" required>
+                <input type="email" id="email-responsavel" name="email" placeholder="Digite o email do responsável"
+                  required>
               </div>
 
               <div>
                 <label for="senha-responsavel">Senha:</label>
-                <input type="password" id="senha-responsavel" name="senha" placeholder="Digite a senha do responsável" required>
+                <input type="password" id="senha-responsavel" name="senha" placeholder="Digite a senha do responsável"
+                  required>
               </div>
 
               <div>
@@ -214,7 +227,7 @@
                 <select id="aluno-responsavel" required>
                   <option value="" disabled selected>Selecione um aluno</option>
                 </select>
-              </div>              
+              </div>
 
               <button type="submit">Adicionar</button>
             </form>

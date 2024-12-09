@@ -218,6 +218,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        data.sort((a, b) => a.nome.localeCompare(b.nome));
+
         listaAlunos.innerHTML = "";
         data.forEach((aluno) => {
             const alunoCard = document.createElement("div");
@@ -225,9 +227,9 @@ document.addEventListener('DOMContentLoaded', () => {
             alunoCard.dataset.alunoId = aluno.id;
             alunoCard.innerHTML = `
         <img src="${aluno.foto_perfil}" alt="Foto de ${aluno.nome}">
-            <h3>${aluno.nome}</h3>
-            <p>${aluno.email}</p>
-            <div class="menu-aluno">
+                    <h3>${aluno.nome}</h3>
+                    <p><span>Turma: </span>${aluno.turma}</p>
+                    <div class="menu-aluno">
                         <button class="menu-button">...</button>
                         <div class="menu-options">
                         <button class="editar-aluno">Editar</button>
@@ -279,6 +281,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const turmasPorEnsino = {
+        EFI: [
+          "1º ano A EFI", "1º ano B EFI", "2º ano A EFI", "2º ano B EFI", 
+          "3º ano A EFI", "3º ano B EFI", "4º ano A EFI", "4º ano B EFI", 
+          "5º ano A EFI", "5º ano B EFI"
+        ],
+        EFII: [
+          "6º ano A EFII", "6º ano B EFII", "7º ano A EFII", "7º ano B EFII", 
+          "8º ano A EFII", "8º ano B EFII", "9º ano A EFII", "9º ano B EFII"
+        ],
+        NEM: [
+          "1º ano A NEM", "1º ano B NEM", "2º ano A NEM", "2º ano B NEM", 
+          "3º ano A NEM", "3º ano B NEM"
+        ]
+      };
+      
+      document.getElementById('editar-ensino-aluno').addEventListener('change', function () {
+        const ensinoSelecionado = this.value;
+        const turmaSelect = document.getElementById('editar-turma-aluno');
+      
+        // Limpa as opções de turma
+        turmaSelect.innerHTML = '<option value="">Selecione uma turma</option>';
+      
+        // Adiciona as turmas correspondentes ao ensino selecionado
+        if (turmasPorEnsino[ensinoSelecionado]) {
+          turmasPorEnsino[ensinoSelecionado].forEach(turma => {
+            const option = document.createElement('option');
+            option.value = turma;
+            option.textContent = turma;
+            turmaSelect.appendChild(option);
+          });
+        }
+      });
+      
+      
+
     // Fecha o modal de edição
     closeEditarModal.addEventListener('click', () => {
         modalEditarAluno.style.display = 'none';
@@ -292,23 +330,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('form-editar-aluno').addEventListener('submit', async (event) => {
         event.preventDefault();
-    
+
         const alunoId = modalEditarAluno.dataset.alunoId;
         const nome = document.getElementById('editar-nome-aluno').value.trim();
         const turma = document.getElementById('editar-turma-aluno').value.trim();
         const genero = document.getElementById('editar-genero-aluno').value;
-    
+
         if (!nome || !turma || !genero) {
             alert('Todos os campos são obrigatórios.');
             return;
         }
-    
+
         try {
             const { error } = await supabaseClient
                 .from('alunos')
                 .update({ nome, turma, genero })
                 .eq('id', alunoId);
-    
+
             if (error) {
                 alert(`Erro ao editar aluno: ${error.message}`);
             } else {
@@ -320,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Erro inesperado:', erro);
         }
     });
-    
+
 
 
 
@@ -385,7 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .select('*')
                 .eq('professor_id', professorId)
                 .eq('aluno_id', alunoId)
-                .single();
+                .maybeSingle();
 
             if (erroVerificacao) {
                 console.error('Erro ao verificar relação existente:', erroVerificacao);
@@ -452,6 +490,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        data.sort((a, b) => a.nome.localeCompare(b.nome));
+
         // Exibe os professores
         data.forEach((professor) => {
             const professorCard = document.createElement("div");
@@ -490,6 +530,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Erro ao buscar professores:", error);
             return;
         }
+
+        data.sort((a, b) => a.nome.localeCompare(b.nome));
 
         listaProfessores.innerHTML = "";
         data.forEach((professor) => {
@@ -616,6 +658,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        data.sort((a, b) => a.nome.localeCompare(b.nome));
+
         data.forEach((responsavel) => {
             const alunoNome = responsavel.alunos?.nome || "Não associado";
             const responsavelCard = document.createElement("div");
@@ -655,6 +699,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Erro ao buscar responsáveis:", error);
             return;
         }
+
+        data.sort((a, b) => a.nome.localeCompare(b.nome));
 
         listaResponsaveis.innerHTML = "";
         data.forEach((responsavel) => {
