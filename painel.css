@@ -6,32 +6,32 @@
 
 @font-face {
     font-family: 'MontserratRegular';
-    src: url(../fonts/Montserrat-Regular.ttf);
+    src: url(./fonts/Montserrat-Regular.ttf);
 }
 
 @font-face {
     font-family: 'MontserratLight';
-    src: url(../fonts/Montserrat-Light.ttf);
+    src: url(./fonts/Montserrat-Light.ttf);
 }
 
 @font-face {
     font-family: 'MontserratSemiBold';
-    src: url(../fonts/Montserrat-SemiBold.ttf);
+    src: url(./fonts/Montserrat-SemiBold.ttf);
 }
 
 @font-face {
     font-family: 'PoppinsRegular';
-    src: url(../fonts/Poppins-Regular.ttf);
+    src: url(./fonts/Poppins-Regular.ttf);
 }
 
 @font-face {
     font-family: 'PoppinsSemiBold';
-    src: url(../fonts/Poppins-SemiBold.ttf);
+    src: url(./fonts/Poppins-SemiBold.ttf);
 }
 
 @font-face {
     font-family: 'PoppinsMedium';
-    src: url(../fonts/Poppins-Medium.ttf);
+    src: url(./fonts/Poppins-Medium.ttf);
 }
 
 html,
